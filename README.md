@@ -102,6 +102,13 @@
     # é só tu ligar pra mim que eu não resisto
     ```
 
+### Usando Chaves
+1. Produzindo com chaves:
+    ```
+    kafka-console-producer --topic topico-exemplo --bootstrap-server localhost:9092 --property parse.key=true --property key.separator=:
+    ```
+
+
 ## Possíveis Dúvidas
 
 ### Preciso de um acompanhamento/monitoramento constante para garantir que o processo do broker está rodando no docker?
