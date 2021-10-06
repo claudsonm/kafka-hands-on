@@ -9,6 +9,7 @@
 1. Mostrar um pouco da interface do Control Center
 
 ## Tópicos
+
 1. Mostrar como cria um Tópico pela interface
 1. Criar um tópico manualmente e mostrar na interface:
     ```
@@ -63,6 +64,9 @@
     kafka-console-consumer --topic topico-exemplo --bootstrap-server localhost:9092
     ```
 1. Nada muda. Pare os consumers
+
+### Consumer Groups
+
 1. Agora silumando várias instâncias da mesma aplicacão (consumer groups):
     ```
     kafka-console-consumer --topic topico-exemplo --group awesome-app --bootstrap-server localhost:9092
@@ -70,7 +74,7 @@
     ```
 1. Chamar atenção para o algoritmo **Round-Robin**
 1. Na direita, dividir horizontalmente
-1. Descrever os consumer groups:
+1. Descrever os consumer groups no novo terminal:
     ```
     kafka-consumer-groups --describe --group awesome-app --bootstrap-server localhost:9092
     ```
@@ -96,17 +100,23 @@
     ```
     kafka-consumer-groups --describe --group awesome-app --bootstrap-server localhost:9092
     ```
-1. Subindo um novo consumer, na esperança de ir mais rápido
+1. Subindo um novo consumer, na esperança de ir mais rápido. Produzir novas mensagens
     ```
     kafka-console-consumer --topic topico-exemplo --group awesome-app --bootstrap-server localhost:9092
     # é só tu ligar pra mim que eu não resisto
     ```
 
 ### Usando Chaves
+
 1. Produzindo com chaves:
     ```
     kafka-console-producer --topic topico-exemplo --bootstrap-server localhost:9092 --property parse.key=true --property key.separator=:
     ```
+
+## Integrando Kafka em Aplicações
+
+### Consumer em Go
+
 
 
 ## Possíveis Dúvidas
