@@ -1,5 +1,14 @@
 # Hands On Kafka
 
+## Criando uma Rede Docker Comum a Todos os Serviços
+
+Antes de tudo, vamos criar uma rede dentro do docker para que possamos reutilizá-la
+entre os nossos diferentes serviços que iremos subir. Para isso, execute:
+
+```
+docker network create kafka-hands-on
+```
+
 ## Subindo o Confluent Platform Stack
 
 1. Google: "kafka all in one"

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  go-consumer-app:
+    image: go-consumer-app
+    build: .
+    container_name: go-consumer-app
+    hostname: go-consumer-app
+
+networks:
+  default:
+    external: true
+    name: kafka-hands-on
