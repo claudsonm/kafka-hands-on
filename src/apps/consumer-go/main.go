@@ -8,7 +8,7 @@ import (
 func main() {
 
 	c, err := kafka.NewConsumer(&kafka.ConfigMap{
-		"bootstrap.servers": "localhost:9092",
+		"bootstrap.servers": "broker:29092",
 		"group.id":          "go-consumer-app",
 		"auto.offset.reset": "earliest",
 		"broker.address.family": "v4",
@@ -18,8 +18,7 @@ func main() {
 		panic(err)
 	}
 
-	c.SubscribeTopics([]string{"myTopic", "^aRegex.*[Tt]opico"}, nil)
-	// c.SubscribeTopics([]string{"myTopic"}, nil)
+	c.SubscribeTopics([]string{"topico-exemplo", "^aRegex.*[Tt]opico"}, nil)
 
 	fmt.Println("Aguardando por novas mensagens...")
 

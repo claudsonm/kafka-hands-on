@@ -126,7 +126,16 @@ docker network create kafka-hands-on
 
 ### Consumer em Go
 
+[Documentação da Biblioteca da Confluent](https://docs.confluent.io/platform/current/clients/confluent-kafka-go/index.html)
+[Documentação de Configurações dos Consumers](https://kafka.apache.org/documentation.html#consumerconfigs)
 
+1. Subir inicialmente tentando se comunicar com a porta errada (`9092`) antes de usar a certa (`29092`)
+1. Mostrar que não é possível subir sem informar o `group.id`
+1. Mostrar que é possível consumir um ou vários tópicos: `.Subscribe()` ou `.SubscribeTopics()`
+1. Produzir várias mensagens em um tópico particionado e observar que o consumo será meio bagunçado
+1. Mostrar as diferenças entre as opções de `earliest` e `latest` do reset do offset
+1. Encerrar o consumidor, produzir mensagens, voltar com ele e observar que continua onde parou
+1. Mostrar o uso de expressão regular no subscribe
 
 ## Possíveis Dúvidas
 
