@@ -1,0 +1,20 @@
+version: '2'
+services:
+  app:
+    build:
+      args:
+          uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: php-producer-app
+    container_name: php-producer-app
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8050:8050"
+
+networks:
+  default:
+    external: true
+    name: kafka-hands-on
