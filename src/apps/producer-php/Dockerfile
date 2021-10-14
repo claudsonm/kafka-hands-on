@@ -44,6 +44,7 @@ RUN ln -sf /usr/bin/php8 /usr/bin/php && \
     chown -R $user:$user /home/$user
 
 COPY .docker/php/entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 COPY . /var/www/html
 RUN chown -R $user:$user /var/www/html

@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Junges\Kafka\Facades\Kafka;
+use Junges\Kafka\Message\Message;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/', function (Request $request) {
+    $message = new Message(
+        'topico-exemplo',
+        body: request()->all(),
+        key: request('id')
+    );
+
+    dump($message);
+
+    $sent = Kafka::publishOn('broker:29092', 'topico-exemplo')
+        ->withMessage($message)
+        ->send();
+    
+    if (! $sent) {
+        throw new \RuntimeException('Falha ao publicar o evento');
+    }
+
+    return response()->noContent();
 });
