@@ -145,7 +145,7 @@ docker-compose build
 docker run --rm -v $(pwd):/var/www/html php-producer-app composer install && php artisan key:generate
 docker-compose up
 
-http POST http://192.168.56.101:8000/api id=6654 name=Amanda last_name=Qweer
+http POST http://192.168.100.40:8000/api id=6654 name=Amanda last_name=Qweer
 
 # Caso seja preciso acessar o app
 docker-compose exec app sh
