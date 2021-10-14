@@ -16,21 +16,19 @@ use Junges\Kafka\Message\Message;
 |
 */
 
-Route::get('/', function (Request $request) {
+Route::post('/', function (Request $request) {
     $message = new Message(
         'topico-exemplo',
         body: request()->all(),
         key: request('id')
     );
 
-    dump($message);
-
     $sent = Kafka::publishOn('broker:29092', 'topico-exemplo')
         ->withMessage($message)
         ->send();
     
     if (! $sent) {
-        throw new \RuntimeException('Falha ao publicar o evento');
+        abort(500, 'Falha ao publicar o evento');
     }
 
     return response()->noContent();

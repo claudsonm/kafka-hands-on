@@ -137,6 +137,20 @@ docker network create kafka-hands-on
 1. Encerrar o consumidor, produzir mensagens, voltar com ele e observar que continua onde parou
 1. Mostrar o uso de expressão regular no subscribe
 
+### Producer em PHP
+
+```sh
+cp .env.example .env
+docker-compose build
+docker run --rm -v $(pwd):/var/www/html php-producer-app composer install && php artisan key:generate
+docker-compose up
+
+http POST http://192.168.56.101:8000/api id=6654 name=Amanda last_name=Qweer
+
+# Caso seja preciso acessar o app
+docker-compose exec app sh
+```
+
 ## Possíveis Dúvidas
 
 ### Preciso de um acompanhamento/monitoramento constante para garantir que o processo do broker está rodando no docker?
