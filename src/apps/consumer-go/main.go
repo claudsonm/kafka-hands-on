@@ -18,7 +18,7 @@ func main() {
 		panic(err)
 	}
 
-	c.SubscribeTopics([]string{"topico-exemplo", "^aRegex.*[Tt]opico"}, nil)
+	c.SubscribeTopics([]string{"topico-exemplo", "^faturas-.*"}, nil)
 
 	fmt.Println("Aguardando por novas mensagens...")
 
