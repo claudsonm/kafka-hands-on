@@ -31,8 +31,9 @@ RUN apk --no-cache add \
     php8-zlib \
     php8-gd \
     php8-pcntl \
-    php8-pecl-swoole --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
-    php8-pecl-rdkafka
+    php8-pecl-swoole \
+    php8-pecl-rdkafka \
+    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
