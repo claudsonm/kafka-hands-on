@@ -188,7 +188,25 @@ UPDATE films SET title = 'Big Hero 6', release_year = 2014, description = 'Uma a
 1. Mostrar o JSON do source connector do MySQL
 1. Importar o source connector do MySQL pela interface: `\\wsl$\Ubuntu-20.04\home\claudson\Code\kafka-hands-on\src\connectors`
 1. Mostrar os tópicos criados pelo Connect
+1. Mostrar o campo `op` nos tópico da tabela `films`, que representa o tipo de operação: `c = create; d = delete; u = update`
 1. Fazer um update na base de dados, e mostrar que isso cairá nos tópicos
+1. Mostrar como ele obtém as informações
+    1. Não é ficar fazendo `SELECT * FROM`
+    1. Mostrar que é sobrescrito o comando de inicialização do mysql no `docker-compose.yml` para habilitar os logs binários
+
+### Sink Connector - MongoDB
+
+[Kafka Connect Transformations](https://docs.confluent.io/platform/current/connect/transforms/overview.html)
+
+1. Transformação vai fazer uma extração (`ExtractField`), do campo `after`
+
+#### Interagindo com o MongoDB
+```sh
+docker-compose exec mongodb mongo --username root --password
+use reports
+show collections
+db.films.find()
+```
 
 ## Possíveis Dúvidas
 
