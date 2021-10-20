@@ -147,17 +147,34 @@ docker network create kafka-hands-on
 #### Comandos Úteis
 
 ```sh
+# Executar obrigatoriamente
 cp .env.example .env
 docker-compose build
 docker run -it --rm --name php-producer-app -v $(pwd):/var/www/html php-producer-app composer install
 docker run -it --rm --name php-producer-app -v $(pwd):/var/www/html php-producer-app php artisan key:generate
 docker-compose up
+docker-compose exec app sh
+php artisan migrate
 
-http POST http://localhost:8000/api id=6654 name=Amanda last_name=Qweer
+# Requisições para a API
+http POST http://localhost:8000/api title="Forrest Gump" release_year=1994 description="Um cara que conta historias"
+http POST http://localhost:8000/api title="The Shawshank Redemption" release_year=1994
 
 # Caso seja preciso acessar o app
 docker-compose exec app sh
+
+# Caso seja preciso acessar a database e fazer mudanças
+docker-compose exec db mysql -u root
+
+UPDATE films SET title = 'Big Hero 6', release_year = 2014, description = 'Uma animacao daora' where id = 1;
 ```
+
+## Connectors
+
+[Debezium Connector for MySQL](https://debezium.io/documentation/reference/1.2/connectors/mysql.html)
+
+Caminho da pasta no WSL: `\\wsl$`
+Completo: `\\wsl$\Ubuntu-20.04\home\claudson\Code\kafka-hands-on\src\connectors`
 
 ## Possíveis Dúvidas
 

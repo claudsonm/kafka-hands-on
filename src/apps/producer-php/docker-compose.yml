@@ -9,10 +9,21 @@ services:
     image: php-producer-app
     container_name: php-producer-app
     restart: unless-stopped
+    depends_on:
+      - db
     volumes:
       - ./:/var/www/html
     ports:
       - "8000:8000"
+
+  db:
+    image: mysql:5.7
+    command: --server-id=1 --log-bin=/var/lib/mysql/mysql-bin.log
+    ports:
+      - "33006:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD="yes"
+      - MYSQL_DATABASE=${DB_DATABASE}
 
 networks:
   default:
