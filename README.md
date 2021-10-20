@@ -197,8 +197,13 @@ UPDATE films SET title = 'Big Hero 6', release_year = 2014, description = 'Uma a
 ### Sink Connector - MongoDB
 
 [Kafka Connect Transformations](https://docs.confluent.io/platform/current/connect/transforms/overview.html)
+[MongoDB Cheat Sheet](https://www.mongodb.com/developer/quickstart/cheat-sheet/)
 
-1. Transformação vai fazer uma extração (`ExtractField`), do campo `after`
+1. Mostrar o JSON do sink para o MongoDB
+1. Explicar as configurações.
+    1. Transformação vai fazer uma extração (`ExtractField`), do campo `after`
+    1. Abrir o link das transformações para ver as opções
+1. Entrar no mongo e ver os registros salvos
 
 #### Interagindo com o MongoDB
 ```sh
