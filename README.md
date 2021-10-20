@@ -144,6 +144,12 @@ docker network create kafka-hands-on
 
 [Documentação da Biblioteca librdkafka em C](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md)
 
+1. Explicar o conteúdo do arquivo `api.php` e pasta `migrations`
+1. Mostrar o `docker-compose.yml`
+1. Interagir com a API de cadastro de filmes
+1. Mostrar que os registros foram salvos na base de dados
+1. Mostrar que o consumer em Go e no console, recebem os eventos do tópico
+
 #### Comandos Úteis
 
 ```sh
@@ -171,10 +177,18 @@ UPDATE films SET title = 'Big Hero 6', release_year = 2014, description = 'Uma a
 
 ## Connectors
 
+### Source Connector - MySQL
+
 [Debezium Connector for MySQL](https://debezium.io/documentation/reference/1.2/connectors/mysql.html)
 
-Caminho da pasta no WSL: `\\wsl$`
-Completo: `\\wsl$\Ubuntu-20.04\home\claudson\Code\kafka-hands-on\src\connectors`
+1. Comentar sobre o esquema de Source Connector e Sink Connectors
+1. Mostrar na interface da Confluent Platform onde fica o Kafka Connect
+1. Mostrar que as opções aparecem pois no `docker-compose.yml` foi feita a instalação
+1. Mostrar a criação pela interface
+1. Mostrar o JSON do source connector do MySQL
+1. Importar o source connector do MySQL pela interface: `\\wsl$\Ubuntu-20.04\home\claudson\Code\kafka-hands-on\src\connectors`
+1. Mostrar os tópicos criados pelo Connect
+1. Fazer um update na base de dados, e mostrar que isso cairá nos tópicos
 
 ## Possíveis Dúvidas
 
