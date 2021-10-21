@@ -225,3 +225,14 @@ Existe um controlador do Kafka para o Kubernetes, é um caminho possível, mas g
 
 Distribuir o processamento das mensagens. Aumentar o throughput da leitura das mensagens.
 
+### Qual a fórmula para definir o número de partições de um tópico?
+
+[Choosing the number of partitions for a topic](https://docs.cloudera.com/runtime/7.2.10/kafka-performance-tuning/topics/kafka-tune-sizing-partition-number.html?)
+
+![Número de partições = max(Np, Nc)](./formulas/particoes.svg)
+
+- ![Np](./formulas/n_p.svg) is the number of required producers determined by calculating: ![Tt/Tp](./formulas/t_t-t_p.svg)
+- ![Nc](./formulas/n_c.svg) is the number of required consumers determined by calculating: ![Tt/Tc](./formulas/t_t-t_c.svg)
+- ![Tt](./formulas/t_t.svg) is the total expected throughput for our system
+- ![Tp](./formulas/t_p.svg) is the max throughput of a single producer to a single partition
+- ![Tc](./formulas/t_c.svg) is the max throughput of a single consumer from a single partition
